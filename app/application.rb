@@ -24,9 +24,9 @@ class Application
     elsif req.path.match(/add/)
       add_item = req.params["item"]
       if @@items.include?(add_item)
-        resp.write handle_search(add_item)
+        resp.write "Added #{add_item}."
       else
-        
+        resp.write "We don't have that item."
       end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
