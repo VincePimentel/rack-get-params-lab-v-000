@@ -23,8 +23,11 @@ class Application
       end
     elsif req.path.match(/add/)
       add_item = req.params["item"]
-      resp.write handle_search(add_item)
-      binding.pry
+      if @@items.include?(add_item)
+        resp.write handle_search(add_item)
+      else
+        
+      end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
