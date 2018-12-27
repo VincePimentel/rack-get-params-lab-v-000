@@ -24,6 +24,7 @@ class Application
     elsif req.path.match(/add/)
       item = req.params["i"]
       resp.write handle_search(item)
+      binding.pry
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
